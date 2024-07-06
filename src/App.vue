@@ -1,16 +1,51 @@
-<script setup>
+<script>
 import { ref } from "vue";
 import HelloWorld from "./components/HelloWorld.vue";
 
-const showHeader = ref(true);
-const toggleHeader = () => {
-  showHeader.value = !showHeader.value;
+// const showHeader = ref(true);
+// const toggleHeader = () => {
+//   showHeader.value = !showHeader.value;
+// };
+export default {
+  data() {
+    return {
+      showHeader: false,
+    };
+  },
+  components:{
+    HelloWorld
+  },
+  methods: {
+    toggleHeader() {
+      this.showHeader = !this.showHeader;
+      this.adjustMainMargin();
+    },
+    adjustMainMargin() {
+      if (window.innerWidth < 1024) {
+      this.$nextTick(() => {
+        const headerHeight = this.$refs.header.offsetHeight;
+        this.$refs.main.style.marginTop = this.showHeader ? `${headerHeight}px` : '0';
+        this.$refs.button.style.marginTop = this.showHeader ? `${headerHeight}px` : '0';
+      });
+    } else {
+      this.$refs.main.style.marginTop = '0';
+      this.$refs.button.style.marginTop = '0';
+    }
+    },
+  },
+  mounted() {
+    this.adjustMainMargin();
+    window.addEventListener('resize', this.adjustMainMargin);
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.adjustMainMargin);
+  }
 };
 </script>
 
 <template>
   <div :class="{ open: showHeader, container: true }">
-    <header :class="{ open: showHeader }">
+    <header :class="{ open: showHeader }" ref="header">
       <img
         alt="Cat logo"
         class="logo"
@@ -31,11 +66,11 @@ const toggleHeader = () => {
       </div>
     </header>
 
-    <button :class="{ open: showHeader }" @click="toggleHeader">
+    <button :class="{ open: showHeader }" @click="toggleHeader" ref="button">
       {{ showHeader ? "Hide" : "Show" }}
     </button>
 
-    <main :class="{ shift: showHeader }">
+    <main :class="{ shift: showHeader }" ref="main">
       <RouterView />
     </main>
   </div>
@@ -49,22 +84,22 @@ header {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #bafbe9;
+  background-color: #c5f1e5;
   overflow-y: hidden;
-  transition: height 0.5s, width 0.5s;
+  transition:  0.5s;
   /* padding-top: 60px; */
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
 }
 
 header.open {
-  height: 35vh; /* Use vh units to set height relative to viewport */
+  height: auto; /* Use vh units to set height relative to viewport */
 }
 
 header .logo {
-  display: block;
-  margin: 0 auto 2rem;
+  /* display: block; */
+  margin: 0 auto 0rem;
 }
 
 header .wrapper {
@@ -83,7 +118,7 @@ header nav a {
   display: inline-block;
   padding: 8px 15px;
   text-decoration: none;
-  color: #818181;
+  color: #1a7643;
   transition: color 0.3s;
 }
 
@@ -109,14 +144,14 @@ button {
 }
 
 button.open {
-    top:35vh;
-    margin: auto;
+    /* top: auto;
+    margin: auto; */
     right: 0;
   
   }
 
 button:hover {
-  background-color: hsla(160, 100%, 37%, 0.2);
+  background-color: hsla(0, 0%, 100%, 0.2);
   border-color:  hsla(160, 100%, 37%, 0.2);
 }
 
@@ -126,7 +161,7 @@ main {
 }
 
 main.shift {
-  margin-top: 35vh;
+  margin-top: auto;
   padding-right: 0px;
 }
 
@@ -140,7 +175,7 @@ main.shift {
     padding-top: 60px;
     overflow-x: hidden;
     overflow-y: auto;
-    transition: width 0.5s;
+    transition: width 0.8s;
     flex-direction: row;
   }
 
@@ -170,7 +205,7 @@ main.shift {
 
   button.open {
     writing-mode: vertical-lr;
-    margin: auto;
+    margin-top: 0;
     right: auto;
     left: 40vw;
     top:0;
@@ -179,16 +214,15 @@ main.shift {
   button {
     writing-mode: vertical-lr;
     right: auto;
-    margin: auto;
     left: 0;
-    transition: 0.5s;
+    transition: 0.8s;
     padding: 28px 5px;
     border-radius: 0px 8px 8px 0px;
     top:0;
   }
 
   main {
-    transition: margin-left 0.5s, width 0.5s;
+    transition: margin-left 0.8s, width 0.8s;
     width: 100%;
   }
 
