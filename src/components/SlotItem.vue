@@ -17,6 +17,7 @@
   margin-top: 2rem;
   display: flex;
   position: relative;
+  transition:0.5s;
 }
 
 .details {
@@ -31,6 +32,11 @@ i {
   width: 32px;
   height: 32px;
   color: var(--color-text);
+}
+
+.item:hover{
+  background-color: rgba(239, 206, 197, 0.782);
+  padding: 35px;
 }
 
 h3 {

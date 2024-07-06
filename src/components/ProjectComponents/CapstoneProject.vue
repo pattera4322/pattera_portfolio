@@ -3,7 +3,8 @@
 <template>
   <div>
     <h2>Capstone project</h2>
-    <p>Project Name: SMART STOCK</p>
+    <br>
+    <p>Project: SMART STOCK</p>
     <br>
     <div class="video-container">
       <iframe

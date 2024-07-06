@@ -5,13 +5,12 @@ import ToolingIcon from "./icons/IconTooling.vue";
 import EcosystemIcon from "./icons/IconEcosystem.vue";
 import CommunityIcon from "./icons/IconCommunity.vue";
 import SupportIcon from "./icons/IconSupport.vue";
-import { RouterLink, RouterView } from "vue-router";
 
 </script>
 
 <template>
   <!-- <h1>My Project</h1> -->
-
+<div class="box">
   <SlotItem>
     <template #icon>
       <DocumentationIcon />
@@ -27,7 +26,7 @@ import { RouterLink, RouterView } from "vue-router";
 
   <SlotItem>
     <template #icon>
-      <ToolingIcon />
+      <DocumentationIcon />
     </template>
     <template #heading>Integrated Project</template>
 
@@ -56,4 +55,9 @@ import { RouterLink, RouterView } from "vue-router";
     <RouterLink to="/portfolio/project/4">See more -></RouterLink>
 
   </SlotItem>
+</div>
 </template>
+
+<style>
+
+</style>
