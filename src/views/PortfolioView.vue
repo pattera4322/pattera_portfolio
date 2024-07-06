@@ -1,13 +1,12 @@
 <script setup>
-
+import PortfolioDetail from "../components/ProjectDetail.vue";
 </script>
- 
+
 <template>
-<div>My Portfolio</div>
+  <div>
+
+    <main><PortfolioDetail /></main>
+  </div>
 </template>
- 
-<style>
-div{
-    font-size: large;
-}
-</style>
+
+<style></style>

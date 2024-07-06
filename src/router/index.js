@@ -23,8 +23,11 @@ const router = createRouter({
       path: '/contact',
       name: 'contact',
       component: () => import('../views/ContactView.vue')
+    },{
+      path: '/portfolio/project/:id',
+      name: 'project',
+      component: () => import('../views/ProjectDetailView.vue')
     }
-  ]
-})
+]})
 
 export default router

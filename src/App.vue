@@ -1,25 +1,43 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import { ref } from "vue";
+import { RouterLink, RouterView } from "vue-router";
+import HelloWorld from "./components/HelloWorld.vue";
+
+const showHeader = ref(true);
+const toggleHeader = () => {
+  showHeader.value = !showHeader.value;
+};
 </script>
 
 <template>
-  <header>
-    <img alt="Cat logo" class="logo" src="@/assets/cat.gif" width="155" height="155" />
+    <header v-show="showHeader">
+      <img
+        alt="Cat logo"
+        class="logo"
+        src="@/assets/cat.gif"
+        width="155"
+        height="155"
+      />
 
-    <div class="wrapper">
-      <HelloWorld msg="Hi!" />
+      <div class="wrapper">
+        <HelloWorld msg="Hi!" />
 
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-        <RouterLink to="/portfolio">Portfolio</RouterLink>
-        <RouterLink to="/contact">Contact</RouterLink>
-      </nav>
-    </div>
-  </header>
+        <nav>
+          <RouterLink to="/">Home</RouterLink>
+          <RouterLink to="/about">About</RouterLink>
+          <RouterLink to="/portfolio">Portfolio</RouterLink>
+          <RouterLink to="/contact">Contact</RouterLink>
+        </nav>
+      </div>
+    </header>
 
-  <RouterView />
+    <!-- <div class="hideButton">
+    <button @click="toggleHeader">{{ showHeader ? "Hide" : "Show" }}</button>
+  </div> -->
+
+    <main>
+      <RouterView />
+    </main>
 </template>
 
 <style scoped>
@@ -58,10 +76,26 @@ nav a:first-of-type {
   border: 0;
 }
 
+button {
+  border-style: solid;
+  border-width: 1px;
+}
+
+.hideButton {
+  text-align: center;
+  transition: color 3s;
+}
+.hideButton :hover {
+  text-align: center;
+  color: rgb(26, 227, 167);
+  font-size: large;
+}
+
 @media (min-width: 1024px) {
   header {
     display: flex;
-    place-items: center;
+    align-items: center; 
+    justify-content: stretch;
     padding-right: calc(var(--section-gap) / 2);
   }
 
@@ -83,5 +117,9 @@ nav a:first-of-type {
     padding: 1rem 0;
     margin-top: 1rem;
   }
+  .hideButton {
+    writing-mode: vertical-lr;
+  }
+
 }
 </style>
