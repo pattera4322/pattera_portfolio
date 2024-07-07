@@ -35,7 +35,7 @@ i {
 }
 
 .item:hover{
-  background-color: rgba(239, 206, 197, 0.782);
+  background-color: rgb(244, 220, 213);
   padding: 35px;
 }
 

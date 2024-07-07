@@ -8,7 +8,7 @@
       <div>
         <h3>Project: Easter Egg Festival</h3>
         <div class="monitor">
-          <img src="@/assets/easter.png" width="600" />
+          <img src="@/assets/easter.png" alt="Easter Egg Festival Project" />
         </div>
         <a
           href="https://www.figma.com/design/zWoqivBThp2cEOMQsTe5bO/Untitled?node-id=0-1&t=jSzPKtDqdOrAEY2n-1"
@@ -31,10 +31,17 @@
 
 <style>
 .monitor {
-  height: 400px;
-  width: 620px;
+  height: 56.25vh; 
+  width: 100%;
   overflow: auto;
 }
+
+.monitor img {
+  width: 100%;
+  height: auto;
+}
+
+
 .video-container {
   position: relative;
   width: 100%;

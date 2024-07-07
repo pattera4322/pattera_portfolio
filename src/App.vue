@@ -1,19 +1,15 @@
 <script>
-import { ref } from "vue";
 import HelloWorld from "./components/HelloWorld.vue";
 
-// const showHeader = ref(true);
-// const toggleHeader = () => {
-//   showHeader.value = !showHeader.value;
-// };
 export default {
   data() {
     return {
       showHeader: true,
+      isBigWindowSize: true,
     };
   },
-  components:{
-    HelloWorld
+  components: {
+    HelloWorld,
   },
   methods: {
     toggleHeader() {
@@ -22,24 +18,38 @@ export default {
     },
     adjustMainMargin() {
       if (window.innerWidth < 1024) {
-      this.$nextTick(() => {
-        const headerHeight = this.$refs.header.offsetHeight;
-        this.$refs.main.style.marginTop = this.showHeader ? `${headerHeight}px` : '0';
-        this.$refs.button.style.marginTop = this.showHeader ? `${headerHeight}px` : '0';
-      });
-    } else {
-      this.$refs.main.style.marginTop = '0';
-      this.$refs.button.style.marginTop = '0';
-    }
+        this.$nextTick(() => {
+          const headerHeight = this.$refs.header.offsetHeight;
+          this.$refs.main.style.marginTop = this.showHeader
+            ? `${headerHeight}px`
+            : "0";
+          this.$refs.button.style.marginTop = this.showHeader
+            ? `${headerHeight}px`
+            : "0";
+        });
+      } else {
+        this.$refs.main.style.marginTop = "0";
+        this.$refs.button.style.marginTop = "0";
+      }
+    },
+    checkIsBig() {
+      if (window.innerWidth < 1024) {
+        this.isBigWindowSize = false;
+      } else {
+        this.isBigWindowSize = true;
+      }
     },
   },
   mounted() {
+    this.checkIsBig();
     this.adjustMainMargin();
-    window.addEventListener('resize', this.adjustMainMargin);
+    window.addEventListener("resize", this.adjustMainMargin);
+    window.addEventListener("resize", this.checkIsBig);
   },
   beforeDestroy() {
-    window.removeEventListener('resize', this.adjustMainMargin);
-  }
+    window.removeEventListener("resize", this.adjustMainMargin);
+    window.removeEventListener("resize", this.checkIsBig);
+  },
 };
 </script>
 
@@ -67,7 +77,14 @@ export default {
     </header>
 
     <button :class="{ open: showHeader }" @click="toggleHeader" ref="button">
-      {{ showHeader ? "Hide" : "Show" }}
+      <i
+        v-if="showHeader"
+        :class="isBigWindowSize ? 'gg-chevron-left' : 'gg-chevron-up'"
+      ></i>
+      <i
+        v-else
+        :class="isBigWindowSize ? 'gg-chevron-right' : 'gg-chevron-down'"
+      ></i>
     </button>
 
     <main :class="{ shift: showHeader }" ref="main">
@@ -86,7 +103,7 @@ header {
   left: 0;
   background-color: #c5f1e5;
   overflow-y: hidden;
-  transition:  0.5s;
+  transition: 0.5s;
   /* padding-top: 60px; */
   display: flex;
   flex-direction: column;
@@ -144,25 +161,33 @@ button {
 }
 
 button.open {
-    /* top: auto;
+  /* top: auto;
     margin: auto; */
-    right: 0;
-  
-  }
+  right: 0;
+}
 
 button:hover {
   background-color: hsla(0, 0%, 100%, 0.2);
-  border-color:  hsla(160, 100%, 37%, 0.2);
+  border-color: hsla(160, 100%, 37%, 0.2);
 }
 
 main {
   top: 0;
+  padding: 30px 30px;
   transition: margin-top 0.5s, margin-left 0.5s;
 }
 
 main.shift {
   margin-top: auto;
-  padding-right: 0px;
+}
+
+/* Fade transition styles */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
+  opacity: 0;
 }
 
 /* Styles for larger screens */
@@ -182,7 +207,7 @@ main.shift {
   header.open {
     width: 40vw; /* Use vw units to set width relative to viewport */
     height: 100%;
-    padding: 0px 20px;
+    padding: 0px 30px;
   }
 
   header .logo {
@@ -208,7 +233,7 @@ main.shift {
     margin-top: 0;
     right: auto;
     left: 40vw;
-    top:0;
+    top: 0;
   }
 
   button {
@@ -218,7 +243,7 @@ main.shift {
     transition: 0.8s;
     padding: 28px 5px;
     border-radius: 0px 8px 8px 0px;
-    top:0;
+    top: 0;
   }
 
   main {
@@ -229,8 +254,7 @@ main.shift {
   main.shift {
     margin-top: 0px;
     margin-left: 40vw;
-    width: 50%;
-    /* padding-right:100px; */
+    width: auto;
   }
 }
 </style>

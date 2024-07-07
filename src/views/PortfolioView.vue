@@ -1,12 +1,17 @@
 <script setup>
-import PortfolioDetail from "../components/ProjectDetail.vue";
+import ProjectDetail from "../components/ProjectDetail.vue";
 </script>
 
 <template>
-  <div>
-
-    <main><PortfolioDetail /></main>
-  </div>
+  <main><ProjectDetail /></main>
 </template>
 
-<style></style>
+<style scoped>
+@media (min-width: 1024px) {
+  main {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+}
+</style>

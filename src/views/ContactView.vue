@@ -1,11 +1,15 @@
-<script setup>
+<script setup></script>
 
-</script>
- 
 <template>
-<div>This is contact page</div>
+  <main>This is contact page</main>
 </template>
- 
-<style>
 
+<style scoped>
+@media (min-width: 1024px) {
+  main {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+}
 </style>
