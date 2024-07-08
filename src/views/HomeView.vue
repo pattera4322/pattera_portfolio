@@ -2,7 +2,7 @@
 
 <template>
   <main class="grid-container">
-    <img src="@/assets/mint2.png" width="300px" height="300px" />
+    <img src="@/assets/mint2.png" />
     <p>
       I'm <span id="name">Pattera Jongwatananugul</span>, a recent graduate from
       King Mongkut's University of Technology Thonburi with a background in
@@ -19,30 +19,51 @@
 </template>
 
 <style scoped>
-
+main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+img {
+  width: 50vw;
+  height: 50vw;
+  margin-bottom: 20px; 
+}
 #name {
   color: rgb(222, 76, 76);
   font-weight: bold;
 }
 .grid-container {
-  display: grid;
-  grid-template-columns: auto auto;
-  /* background-color: #2196f3; */
-  padding: 10px;
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
 }
 a:hover {
-  /* background-color: rgb(252, 193, 158); */
   padding: 3px 10px;
   text-decoration: underline;
 }
-a{
+a {
   font-weight: 600;
 }
 
 @media (min-width: 1024px) {
   main {
     min-height: 100vh;
-    display: flex;
+    align-items: center;
+    flex-direction: row; 
+    justify-content: center;
+    padding: 0;
+  }
+
+  img {
+    margin-bottom: 0;
+    margin-right: 20px; 
+    width: 20vw;
+    height: 20vw;
+  }
+
+  .grid-container {
+    flex-direction: row; 
     align-items: center;
   }
 }

@@ -129,6 +129,12 @@ h2 {
   color: var(--color-heading);
 }
 
+.item img{
+  background: var(--color-background-img);
+  border-radius: 5px;
+  padding: 2px;
+}
+
 @media (min-width: 1024px) {
   /* main{
     padding: 0rem 5rem;
