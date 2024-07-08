@@ -58,6 +58,9 @@ import SupportIcon from "./icons/IconSupport.vue";
 </div>
 </template>
 
-<style>
-
+<style scoped>
+.item:hover{
+  background-color: rgb(244, 220, 213);
+  padding: 35px;
+}
 </style>

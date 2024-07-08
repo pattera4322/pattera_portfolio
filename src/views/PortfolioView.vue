@@ -3,7 +3,7 @@ import ProjectDetail from "../components/ProjectDetail.vue";
 </script>
 
 <template>
-  <main><ProjectDetail /></main>
+  <main ><ProjectDetail /></main>
 </template>
 
 <style scoped>
@@ -12,6 +12,7 @@ import ProjectDetail from "../components/ProjectDetail.vue";
     min-height: 100vh;
     display: flex;
     align-items: center;
+    padding: 0;
   }
 }
 </style>

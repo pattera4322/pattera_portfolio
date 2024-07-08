@@ -249,10 +249,11 @@ main.shift {
   main {
     transition: margin-left 0.8s, width 0.8s;
     width: 100%;
+    padding: 2rem 12rem;
   }
 
   main.shift {
-    margin-top: 0px;
+    padding: 2rem 3rem;
     margin-left: 40vw;
     width: auto;
   }
