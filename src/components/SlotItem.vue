@@ -57,6 +57,10 @@ h3 {
   color: var(--color-heading);
 }
 
+.item:hover h3,.item:hover i{
+  color: black;
+}
+
 @media (min-width: 1024px) {
   .item {
     margin-top: 0;
@@ -99,5 +103,9 @@ h3 {
   .item:last-of-type:after {
     display: none;
   }
+
+  .item:hover i{
+  color: var(--color-background-button);
+}
 }
 </style>

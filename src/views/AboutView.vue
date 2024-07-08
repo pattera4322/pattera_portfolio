@@ -191,7 +191,7 @@ html {
   cursor: pointer;
   transition: background-color 0.3s, transform 0.3s;
   z-index: 1000;
-  color: black;
+  color: var(--color-text-swip);
 }
 
 .scroll-button:hover {
