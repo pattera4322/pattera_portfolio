@@ -1,4 +1,12 @@
-<script setup></script>
+<script setup>
+import ImageSlider from "../ImageSlider.vue";
+import profileImage from "@/assets/profile.png";
+import findFriend1 from "@/assets/findfriend1.png";
+import findFriend2 from "@/assets/findfriend2.png";
+import findFriend3 from "@/assets/findfriend3.png";
+
+const images = [findFriend1, profileImage, findFriend2, findFriend3];
+</script>
 
 <template>
   <div>
@@ -25,6 +33,18 @@
 
       <div>
         <h3>Project: Finding Temporary Friend</h3>
+        <div class="image-mix">
+          <div class="image-slider"></div>
+          <ImageSlider :images="images"></ImageSlider>
+
+          <a
+            href="https://www.figma.com/proto/mwus5pxiUfW1QBubDCpQvl/%E0%B9%80%E0%B8%9E%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B8%99%E0%B8%8A%E0%B8%B1%E0%B9%88%E0%B8%A7%E0%B8%84%E0%B8%A3%E0%B8%B2%E0%B8%A7?node-id=13-8&t=bv7jl79FwF3IOPFY-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1"
+            target="_blank"
+            class="play"
+            ><i class="gg-play-button-o"></i>
+            <p>Play Prototype</p></a
+          >
+        </div>
         <a
           href="https://www.figma.com/design/mwus5pxiUfW1QBubDCpQvl/%E0%B9%80%E0%B8%9E%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B8%99%E0%B8%8A%E0%B8%B1%E0%B9%88%E0%B8%A7%E0%B8%84%E0%B8%A3%E0%B8%B2%E0%B8%A7?node-id=0-1&t=FOwieKCkj5NNTrL8-1"
           target="_blank"
@@ -68,7 +88,7 @@ h2 {
   padding: 8px;
 }
 
-a:hover{
+a:hover {
   border-radius: 2px;
 }
 
@@ -84,5 +104,18 @@ a:hover{
   left: 0;
   width: 100%;
   height: 100%;
+}
+.image-slider {
+  width: 35%;
+}
+.image-mix {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+a {
+  width: 100%;
 }
 </style>
