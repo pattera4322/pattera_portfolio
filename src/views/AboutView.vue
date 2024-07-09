@@ -1,5 +1,10 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
+import ImageSlider from "../components/ImageSlider.vue";
+import accentureImage from '@/assets/accenture.jpg';
+import teamImage from '@/assets/team.jpg';
+
+const images = [accentureImage, teamImage];
 
 const sections = ref(["section-one", "section-two", "section-three"]);
 const activeSectionIndex = ref(0);
@@ -8,7 +13,6 @@ const windowWidth = ref(window.innerWidth);
 const updateWindowWidth = () => {
   windowWidth.value = window.innerWidth;
 };
-
 
 let observer;
 
@@ -135,6 +139,7 @@ function scrollUp() {
       class="section"
       :class="{ active: activeSectionIndex === 1 }"
     >
+      <ImageSlider :images="images"></ImageSlider>
       <p>
         In addition to my academic background, I had the opportunity to intern
         at
@@ -268,6 +273,15 @@ a {
   color: rgb(189, 0, 189);
   font-size: large;
 }
+
+#section-two {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
 @media (min-width: 1024px) {
   main {
     min-height: 100vh;
@@ -288,6 +302,12 @@ a {
   .section {
     justify-content: center;
     /* height: calc(100vh - var(--header-height));  */
+  }
+  #section-two {
+    flex-direction: row;
+  }
+  #section-two p {
+    width: 60vw;
   }
 }
 </style>

@@ -10,7 +10,7 @@
     </div>
 
     <div>
-      <img src="@/assets/call.png" alt="phone" /><a href="tel:+0894457114"
+      <img src="@/assets/call.png" alt="phone" /><a href="tel:0894457114"
         >(+66)89 445 7114</a
       >
     </div>

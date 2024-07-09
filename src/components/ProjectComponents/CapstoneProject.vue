@@ -119,7 +119,7 @@ import SlotItem from "../SlotItem.vue";
 h3 {
   font-size: 1.3rem;
   font-weight: 500;
-  margin-top: 1.7rem;
+  margin: 1.7rem 0rem;
   color: var(--color-heading);
 }
 
@@ -134,6 +134,10 @@ h2 {
   border-radius: 5px;
   padding: 2px;
 }
+
+.detail {
+    padding-top: 20px;
+  }
 
 @media (min-width: 1024px) {
   /* main{
@@ -156,6 +160,7 @@ h2 {
 
   .detail {
     width: 50%;
+    padding: 0;
   }
 
   .container-features {
