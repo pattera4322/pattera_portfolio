@@ -79,22 +79,25 @@ import SlotItem from "../SlotItem.vue";
     <div class="image-container">
       <img src="@/assets/techStacks.jpg" alt="tech-stack" />
     </div>
+
+    <h3>Acknowledgments</h3>
+    <p>
+      This project is owned by King Mongkut's University of Technology Thonburi
+      (KMUTT). I was part of the team that developed this project as part of my
+      coursework. I would like to thank the university and my teammates for
+      providing the resources and support necessary to complete this work.
+    </p>
   </main>
 </template>
 
 <style scoped>
-.container-features img {
-  width: 40px;
-  height: 40px;
-}
-
 .video-container {
   position: relative;
   width: 100%;
   padding-top: 56.25%;
 }
 
-.video-container iframe{
+.video-container iframe {
   position: absolute;
   top: 0;
   left: 0;
@@ -108,7 +111,7 @@ import SlotItem from "../SlotItem.vue";
   padding-top: 56.25%;
 }
 
-.image-container img{
+.image-container img {
   position: absolute;
   top: 0;
   left: 0;
@@ -119,7 +122,7 @@ import SlotItem from "../SlotItem.vue";
 h3 {
   font-size: 1.3rem;
   font-weight: 500;
-  margin: 1.7rem 0rem;
+  margin: 1.7rem 0rem 1.3rem 0rem;
   color: var(--color-heading);
 }
 
@@ -129,15 +132,17 @@ h2 {
   color: var(--color-heading);
 }
 
-.item img{
+.item img {
   background: var(--color-background-img);
   border-radius: 5px;
   padding: 2px;
+  width: 40px;
+  height: 40px;
 }
 
 .detail {
-    padding-top: 20px;
-  }
+  padding-top: 20px;
+}
 
 @media (min-width: 1024px) {
   /* main{
@@ -170,7 +175,7 @@ h2 {
   }
 
   .item {
-    margin-top: 2rem;
+    /* margin-top: 2rem; */
     display: flex;
     align-content: center;
     padding: 0px;
