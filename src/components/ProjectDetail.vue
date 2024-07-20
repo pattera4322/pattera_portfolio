@@ -64,4 +64,8 @@ import SupportIcon from "./icons/IconSupport.vue";
   padding: 35px;
   color: black;
 }
+
+h1{
+    margin-top: 10px ;
+}
 </style>

@@ -74,6 +74,7 @@ h2 {
   font-size: 1.4rem;
   font-weight: 600;
   color: var(--color-heading);
+  border-bottom: 4px solid rgb(56, 226, 169);
 }
 
 h3 {

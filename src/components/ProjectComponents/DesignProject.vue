@@ -13,7 +13,7 @@ const images = [findFriend1, profileImage, findFriend2, findFriend3];
     <h1>UX/UI projects</h1>
     <div>
       <div>
-        <h3>Project: Easter Egg Festival</h3>
+        <h2>Project: Easter Egg Festival</h2>
         <div class="monitor">
           <img src="@/assets/easter.png" alt="Easter Egg Festival Project" />
         </div>
@@ -32,7 +32,7 @@ const images = [findFriend1, profileImage, findFriend2, findFriend3];
       </div>
 
       <div>
-        <h3>Project: Finding Temporary Friend</h3>
+        <h2>Project: Finding Temporary Friend</h2>
         <div class="image-mix">
           <div class="image-slider"></div>
           <ImageSlider :images="images"></ImageSlider>
@@ -78,6 +78,7 @@ h2 {
   font-size: 1.4rem;
   font-weight: 600;
   color: var(--color-heading);
+  border-bottom: 4px solid rgb(56, 226, 169);
 }
 .play {
   display: flex;
