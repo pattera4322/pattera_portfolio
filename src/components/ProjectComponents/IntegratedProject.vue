@@ -54,6 +54,11 @@ import SlotItem from "../SlotItem.vue";
         </p>
       </SlotItem>
     </div>
+
+    <h3>Tools & Technology</h3>
+    <div class="image-container">
+      <img src="@/assets/toolProj2.png" alt="tech-stack" />
+    </div>
   </main>
 </template>
 
@@ -76,6 +81,21 @@ h3 {
   font-weight: 500;
   margin: 1.7rem 0rem 1.3rem 0rem;
   color: var(--color-heading);
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  border-radius: 20px;
+}
+
+.image-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 @media (min-width: 1024px) {
   .container-features {
