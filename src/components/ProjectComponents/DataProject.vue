@@ -1,10 +1,11 @@
 <script setup>
-import ImageSlider from '../ImageSlider.vue';
+import ImageSlider from "../ImageSlider.vue";
 import pic1 from "@/assets/datapic1.png";
 import pic2 from "@/assets/datapic2.png";
+import pic3 from "@/assets/streamlit.png";
 
-const images = [pic1,pic2];
-
+const images = [pic1, pic2];
+const image2 = [pic3];
 </script>
 
 <template>
@@ -126,8 +127,8 @@ const images = [pic1,pic2];
 
       <div>
         <h3>Analysis</h3>
-        <div >
-          <ImageSlider :images="images"/>
+        <div>
+          <ImageSlider :images="images" />
         </div>
         <div class="link-canva">
           <a
@@ -144,6 +145,53 @@ const images = [pic1,pic2];
         target="_blank"
       >
         See more on Github! -></a
+      >
+    </div>
+
+    <div>
+      <h2>Project: Insurance Cost Prediction</h2>
+      <div>
+        <h3>Project Overview</h3>
+        <p>
+          This project is an assignment from my AI class at university, designed
+          to provide hands-on experience with creating predictive models using
+          linear regression. The objective of the assignment was to predict
+          insurance costs based on various factors such as age, gender, BMI, and
+          smoking status. By working through this project, I gained practical
+          experience in data preprocessing, model development, evaluation, and
+          deployment using Streamlit.
+        </p>
+      </div>
+
+      <div>
+        <h3>Data sources</h3>
+        <p>
+          Data to analysis in this case was<a
+            href="https://www.kaggle.com/datasets/thedevastator/prediction-of-insurance-charges-using-age-gender"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Prediction of Insurance Charges</a
+          >
+          from Kaggle that made available through The Devastator. This dataset
+          contains detailed information about insurance customers, including
+          their age, sex, body mass index (BMI), number of children, smoking
+          status and region.
+        </p>
+      </div>
+
+      <div>
+        <h3>My Analysis</h3>
+        <div>
+          <ImageSlider :images="image2" />
+        </div>
+      </div>
+
+      <a
+        href="https://mllinearregressionpattera.streamlit.app/"
+        target="_blank"
+      >
+        See more on Streamlit! -></a
       >
     </div>
   </main>
